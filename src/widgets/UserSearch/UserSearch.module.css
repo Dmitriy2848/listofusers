@@ -1,0 +1,62 @@
+.wrapper {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 12px 16px 16px;
+    box-shadow: 0 18px 15px rgba(148, 148, 148, 0.15);
+    border-radius: 7px;
+}
+.wrapper .input {
+    width: 100%;
+    padding: 9px;
+    background-color: #ECEFF0;
+    border-radius: 4px;
+    display: flex;
+}
+.input .input_icon {
+    display: inline-flex;
+    height: 100%;
+}
+.input .input_icon svg{
+    width: 24px;
+    height: 24px;
+}
+.input .input_field {
+    margin-left: 8px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: 12px;
+    font-weight: 500;
+    color: #9EAAB4;
+    width: 100%;
+}
+.input .input_field::placeholder { color: #9EAAB4; }
+
+.clear {
+    margin-top: 24px;
+}
+.clear .button {
+    display: flex;
+    padding: 5px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.button_icon {
+    display: inline-flex;
+    height: 100%;
+}
+.button .button_icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+.button .button_text {
+    color: #4F4F4F;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    margin-left: 4px;
+}
