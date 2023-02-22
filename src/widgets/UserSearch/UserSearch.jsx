@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 const UserSearch = () => {
 	const [searchValue, setSearchValue] = useState('');
-
+	// todo добавить disabled кнопке
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.input}>
