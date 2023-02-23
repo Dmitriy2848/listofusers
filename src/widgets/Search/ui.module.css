@@ -13,15 +13,15 @@
     border-radius: 4px;
     display: flex;
 }
-.input .input_icon {
+.input .icon {
     display: inline-flex;
     height: 100%;
 }
-.input .input_icon svg{
+.input .icon svg{
     width: 24px;
     height: 24px;
 }
-.input .input_field {
+.input .field {
     margin-left: 8px;
     background-color: transparent;
     outline: none;
@@ -31,10 +31,14 @@
     color: #9EAAB4;
     width: 100%;
 }
-.input .input_field::placeholder { color: #9EAAB4; }
+.input .field::placeholder { color: #9EAAB4; }
 
-.clear {
+.wrapper .clear {
     margin-top: 24px;
+}
+.clear.disabled {
+    opacity: .4;
+    pointer-events: none;
 }
 .clear .button {
     display: flex;
@@ -44,16 +48,16 @@
     border: none;
     cursor: pointer;
 }
-.button_icon {
+.clear .button .icon {
     display: inline-flex;
     height: 100%;
 }
-.button .button_icon svg {
+.clear .button .icon svg {
     width: 16px;
     height: 16px;
 }
 
-.button .button_text {
+.clear .button .text {
     color: #4F4F4F;
     font-size: 12px;
     line-height: 16px;

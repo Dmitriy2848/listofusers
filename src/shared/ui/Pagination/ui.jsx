@@ -1,16 +1,17 @@
 import React from 'react';
-import { usePagination, DOTS } from './usePagination';
-import styles from './Pagination.module.css';
-const Pagination = (props) => {
-	const {
-		onPageChange,
-		totalCount,
-		siblingCount = 1,
-		currentPage,
-		pageSize,
-		className
-	} = props;
 
+import { usePagination } from 'shared/ui/Pagination/lib.js';
+
+import styles from './ui.module.css';
+
+const Pagination = ({
+	onPageChange,
+	totalCount,
+	siblingCount = 1,
+	currentPage,
+	pageSize,
+	className
+}) => {
 	const paginationRange = usePagination({
 		currentPage,
 		totalCount,
@@ -25,7 +26,6 @@ const Pagination = (props) => {
 	const onNext = () => {
 		onPageChange(currentPage + 1);
 	};
-
 	const onPrevious = () => {
 		onPageChange(currentPage - 1);
 	};
@@ -40,7 +40,7 @@ const Pagination = (props) => {
 				Пред.
 			</li>
 			{paginationRange.map((num, i) => {
-				if (num === DOTS) {
+				if (num === 'ellipsis') {
 					return (
 						<li
 							key={i}
@@ -50,7 +50,6 @@ const Pagination = (props) => {
 						</li>
 					);
 				}
-
 				return (
 					<li
 						key={i}

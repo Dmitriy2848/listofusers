@@ -4,20 +4,17 @@
     gap: 15px;
     padding: 20px 19px 0 0;
 }
-
-.item {
+.container .item {
     list-style: none;
     font-size: 12px;
     color: #ACACAC;
     cursor: pointer;
     user-select: none;
 }
-
-.item.selected {
+.container .item.selected {
     color: #333333;
 }
-
-.item.disabled {
+.container .item.disabled {
     opacity: .5;
     pointer-events: none;
 }
