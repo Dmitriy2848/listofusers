@@ -15,7 +15,7 @@ export const Items = () => {
 	}, []);
 
 	const { list, searchBy, sortBy } = useSelector((state) => state.users);
-	let listCopy = [...list];
+	let listClone = structuredClone(list);
 
 	const [currentPage, setCurrentPage] = useState(1);
 	const pageSize = 5;
@@ -23,26 +23,30 @@ export const Items = () => {
 	const lastPageIndex = firstPageIndex + pageSize;
 
 	if (searchBy) {
-		listCopy = list.filter((user) => {
-			if (user.email.toLowerCase().includes(searchBy)) {
-				return true;
-			} else if (user.username.toLowerCase().includes(searchBy)) {
+		listClone = listClone.filter((user) => {
+			if (
+				user.email.toLowerCase().includes(searchBy) ||
+				user.username.toLowerCase().includes(searchBy)
+			) {
 				return true;
 			}
 		});
 	}
 	if (sortBy.date) {
-		listCopy = listCopy.sort((a, b) => {
+		listClone = listClone.sort((a, b) => {
 			const aDate = new Date(a.registration_date);
 			const bDate = new Date(b.registration_date);
 			return bDate - aDate;
 		});
 	}
 	if (sortBy.rating) {
-		listCopy = listCopy.sort((a, b) => b.rating - a.rating);
+		listClone = listClone.sort((a, b) => b.rating - a.rating);
 	}
 
-	let currentData = listCopy.slice(firstPageIndex, lastPageIndex);
+	const currentData = listClone.slice(firstPageIndex, lastPageIndex);
+	if (!currentData.length && currentPage > 1) {
+		setCurrentPage((prev) => prev - 1);
+	}
 
 	return (
 		<>
@@ -58,7 +62,7 @@ export const Items = () => {
 			))}
 			<Pagination
 				currentPage={currentPage}
-				totalCount={listCopy.length}
+				totalCount={listClone.length}
 				pageSize={pageSize}
 				onPageChange={(page) => setCurrentPage(page)}
 			/>
